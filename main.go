@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
-	"time"
 )
 
 func main() {
@@ -28,9 +27,7 @@ func main() {
 		quitApp(app)
 	}
 
-	emptyTrash()
-
-	time.Sleep(5 * time.Second)
+	// emptyTrash()
 
 	quitApp("iTerm2")
 }
@@ -43,10 +40,10 @@ func quitApp(app string) {
 	}
 }
 
-func emptyTrash() {
-	scriptEmptyTrash := `tell application "Finder" to empty the trash`
-	_, err := exec.Command("osascript", "-e", scriptEmptyTrash).Output()
-	if err != nil {
-		fmt.Println("Error emptying the trash:", err)
-	}
-}
+// func emptyTrash() {
+// 	scriptEmptyTrash := `tell application "Finder" to empty the trash`
+// 	_, err := exec.Command("osascript", "-e", scriptEmptyTrash).Output()
+// 	if err != nil {
+// 		fmt.Println("Error emptying the trash:", err)
+// 	}
+// }
