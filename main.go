@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -28,6 +29,8 @@ func main() {
 	}
 
 	emptyTrash()
+
+	time.Sleep(500 * time.Millisecond)
 
 	quitApp("iTerm2")
 }
