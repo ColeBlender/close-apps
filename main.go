@@ -30,7 +30,7 @@ func main() {
 
 	emptyTrash()
 
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(5 * time.Second)
 
 	quitApp("iTerm2")
 }
