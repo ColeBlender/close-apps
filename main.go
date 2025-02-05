@@ -8,7 +8,7 @@ import (
 
 func main() {
 	scriptList := `
-		tell application "System Events" 
+		tell application "System Events"
 			get displayed name of every process whose background only is false
 		end tell
 	`
@@ -27,6 +27,8 @@ func main() {
 		quitApp(app)
 	}
 
+	emptyTrash()
+
 	quitApp("iTerm2")
 }
 
@@ -35,5 +37,13 @@ func quitApp(app string) {
 	_, quitErr := exec.Command("osascript", "-e", scriptQuit).Output()
 	if quitErr != nil {
 		fmt.Printf("Error quitting %s: %v\n", app, quitErr)
+	}
+}
+
+func emptyTrash() {
+	scriptEmptyTrash := `tell application "Finder" to empty the trash`
+	_, err := exec.Command("osascript", "-e", scriptEmptyTrash).Output()
+	if err != nil {
+		fmt.Println("Error emptying the trash:", err)
 	}
 }

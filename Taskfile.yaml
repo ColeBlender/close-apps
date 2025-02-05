@@ -3,4 +3,4 @@ version: "3"
 tasks:
   build:
     cmds:
-      - go build -o ~/scripts/close cmd/closer/main.go
+      - go build -o ~/scripts/close main.go
